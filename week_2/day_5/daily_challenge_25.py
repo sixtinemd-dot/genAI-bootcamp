@@ -1,0 +1,66 @@
+""" Exercise 1: Quizz
+Answer the following questions: """
+
+# What is a class?
+  # A class is a blueprint used to create objects
+# What is an instance?
+  # An instance is an object created from a class
+# What is encapsulation?
+  # Encapsulation means grouping attributes and methods together inside a class
+# What is abstraction?
+  # Abstraction means showing only what is necessary and hiding details
+# What is inheritance?
+  # Inheritance allows a class to receive attributes and methods from another class
+# What is multiple inheritance?
+  # Multiple inheritance means a class can inherit from more than one parent class
+# What is polymorphism?
+  # Polymorphims allows different classes to have methods with the same name, but different behavior
+# What is method resolution order or MRO?
+  # MRO is the order in which Python looks for a method or attribute when you call it
+
+""" Exercise 2: Create a deck of cards class
+The Deck of cards class should NOT inherit from a Card class.
+
+The requirements are as follows:
+
+The Card class should have a suit (Hearts, Diamonds, Clubs, Spades) and a value (A,2,3,4,5,6,7,8,9,10,J,Q,K)
+The Deck class :
+should have a shuffle method which makes sure the deck of cards has all 52 cards and then rearranges them randomly.
+should have a method called deal which deals a single card from the deck. After a card is dealt, it should be removed from the deck. """
+
+import random
+
+suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
+value_list = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        
+class Card:
+    def __init__(self, suit, value):            
+        self.suit = suit
+        self.value = value
+
+    def __str__(self):
+        return f"{self.value} of {self.suit}"
+        
+
+class Deck:
+    def __init__(self):
+        self.cards = []
+
+    def build(self): # build the deck
+        self.cards = [Card(suit, value) for suit in suit_list for value in value_list]
+        return self.cards
+
+    def shuffle(self):
+        return random.shuffle(self.cards)
+    
+    def deal(self):
+        if self.cards == []:
+            return None
+        else:
+            return self.cards.pop()
+        
+    def __str__(self):
+        return f"There are {len(self.cards)} cards in the deck."
+    
+
+
