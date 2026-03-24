@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-df = pd.read_excel('/Users/sixtinemauchard/Downloads/genAI-bootcamp/week_3/day_5/mini_challenge/US_Superstore_data.xls', engine="xlrd")
+df = pd.read_excel('/Users/sixtinemauchard/Downloads/genAI-bootcamp/week_3/day_5/US_Superstore_data.xls', engine="xlrd")
 
 #Which states have the most sales?
 state_sales = df.groupby('State')['Sales'].sum().sort_values(ascending=False)
